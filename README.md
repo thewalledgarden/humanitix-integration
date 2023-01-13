@@ -27,9 +27,9 @@ This will produce the file `./dist/humanitix-event-connector.zip`. This is the f
 ### Installation
 
 1. Install the plugin
-2. Add the humanitix `API key` to the plugin settings page  
-   The API key [can be found here](https://console.humanitix.com/console/account/advanced/api-key)
-   The plugin settings page can be found under `Settings > Humanitix Event Connector`
+2. Add the humanitix `API key` to the plugin settings page
+   - The API key [can be found here](https://console.humanitix.com/console/account/advanced/api-key)
+   - The plugin settings page can be found under [`Settings > General`](http://localhost:8080/wp-admin/options-general.php)
 
 ### Add a humanitix event
 
