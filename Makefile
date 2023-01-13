@@ -31,13 +31,13 @@ dist/humanitix-event-connector.zip:
 version = `grep Version index.php | cut -d' ' -f2`
 
 release:
-	@echo "Creating release for version $(version)..."
-	@if ! git rev-parse $(version) >/dev/null 2>&1; then \
-		git tag v$(version) -m "Release version $(version)"; \
-		git push origin $(version); \
-		echo "Release $(version) created and pushed!"; \
+	@echo "Creating release for version v$(version)..."
+	@if ! git rev-parse v$(version) >/dev/null 2>&1; then \
+		git tag v$(version) -m "Release version v$(version)"; \
+		git push origin v$(version); \
+		echo "Release v$(version) created and pushed!"; \
 	else \
-		echo "Error: Tag $(version) already exists. Please specify a different version number."; \
+		echo "Error: Tag v$(version) already exists. Please specify a different version number."; \
 	fi
 
 # Clean command that removes the file
