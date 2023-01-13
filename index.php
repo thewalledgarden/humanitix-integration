@@ -2,7 +2,7 @@
 /*
 Plugin Name: Humanitix Event Connector
 Description: Connect Humanitix events to WordPress posts on the fly.
-Version: 1.0
+Version: 1.1
 Author: Mikael Grön <skaramicke@gmail.com>
 */
 
