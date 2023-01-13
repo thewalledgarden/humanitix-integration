@@ -26,8 +26,22 @@ dist/humanitix-event-connector.zip:
 	mkdir -p dist
 	zip -r -x@.zipignore dist/humanitix-event-connector.zip ./
 
+
+# Print out the current version
+version = `grep Version index.php | cut -d' ' -f2`
+
+release:
+	@echo "Creating release for version $(version)..."
+	@if ! git rev-parse $(version) >/dev/null 2>&1; then \
+		git tag v$(version) -m "Release version $(version)"; \
+		git push origin $(version); \
+		echo "Release $(version) created and pushed!"; \
+	else \
+		echo "Error: Tag $(version) already exists. Please specify a different version number."; \
+	fi
+
 # Clean command that removes the file
 clean:
 	rm -rf dist
 
-.PHONY: up down db clean
+.PHONY: up down db release clean
