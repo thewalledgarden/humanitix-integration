@@ -112,18 +112,6 @@ function humanitix_event_connector_shortcode( $atts ) {
     // Convert to timestamp
     $start_time = strtotime( $start_time );
 
-    // Generate a text string for the event date that uses relative formatting if it's within three days
-    // e.g. "Monday at 12:00pm"
-    // e.g. "Tuesdan in 2 days at 12:00pm"
-    // e.g. "Tuesday 12th of January at 12:00pm"
-    $event_date = date_i18n( 'l', $start_time );
-    if ( $start_time - time() < 3 * DAY_IN_SECONDS ) {
-        $event_date .= ' ' . human_time_diff( $start_time, time() );
-    } else {
-        $event_date .= ' ' . date_i18n( 'jS \o\f F', $start_time );
-    }
-    $event_date .= ' at ' . date_i18n( 'g:ia', $start_time );
-    
-    return $event_date;
+    return wp_date( 'l M j, g:i A T', $start_time );
 }
 add_shortcode( 'humanitix_date', 'humanitix_event_connector_shortcode' );
